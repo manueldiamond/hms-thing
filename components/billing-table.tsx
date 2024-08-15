@@ -62,7 +62,7 @@ export const TableRow=({patientImg,patientName,EMRcode,department,bill,outstandi
         <div className="flex gap-3">
           <h6 className="flex-1 text-dark font-medium text-base">{TableHeading}</h6>
           <Button size="md" icons='plus' leftIcon type="ghost">
-            <input className="" placeholder="Search"/>
+            <input className="bg-transparent select-none" placeholder="Search"/>
           </Button>
           <Button size="md" icons='plus' leftIcon type="ghost">
             Sort By Category

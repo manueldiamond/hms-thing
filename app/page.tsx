@@ -96,7 +96,7 @@ export default function Home() {
   const avatarSizes=['xs','sm',"md",'lg','xl','2xl','3xl','4xl'] as AvatarSizes[]
   
   const Container=({children,bordered=false,className}:{className?:string, bordered?:boolean,children:React.ReactNode})=>(
-    <section className={`${className} w-max container px-6 py-4 rounded-2xl border-dashed  ${bordered&&'border'} border-[#9747FF]`}>
+    <section className={`${className} w-max container px-6 py-4 rounded-xl border-dashed  ${bordered&&'border'} border-[#9747FF]`}>
       {children}
     </section>
   )
