@@ -2,32 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.Mild{
+  @apply text-warning-dark;
+  
+}
+.Severe{
+  @apply text-error;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.Mild .icon,.Mild.icon{
+  @apply text-warning;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.Normal{
+
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.btn.xs,.btn.sm{
+  @apply text-[12px] py-1 px-3 gap-2 rounded;
+}
+.btn.md{
+  @apply text-[14px] py-[6px] px-3 gap-2 rounded;
+}
+.btn.lg,.btn.xl{
+  @apply text-[16px] py-[9px] px-4 gap-2 rounded-lg;
+}
+.btn.xl{
+  @apply py-[13px];
+}
+
+.btn{
+  @apply font-medium flex justify-between;
+}
+/* .btn.primary{ @apply bg-} */
+
+.btn.primary{
+  @apply bg-base text-white;
+}
+
+.btn.ghost{
+  @apply hover:bg-light
+}
+.btn.ghost{
+  @apply border-solid border border-inactive text-para;
 }
