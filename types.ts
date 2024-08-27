@@ -1,5 +1,5 @@
 import { title } from "process";
-import React from "react";
+import React, { HTMLInputTypeAttribute } from "react";
 
 export type Priorities='Mild' | 'Severe' | 'Normal';
 
@@ -36,7 +36,7 @@ export type AvatarProps={
     size:AvatarSizes
     
     /** path to the avatar image */
-    img:string;
+    img?:string;
 }
 
 
@@ -71,7 +71,7 @@ export type ButtonProps = {
    * Can be 'plus', 'check'
    * * OR: a custom element;icon={<div ./>..}
    */
-  icons: 'plus' | 'check' | React.JSX.Element;
+  icons?: 'plus' | 'check' | React.JSX.Element;
 
   /**
    * If true, show the left icon
@@ -96,12 +96,12 @@ export type ButtonProps = {
   /**
    * The style type of the button, 'primary' or 'ghost'.
    */
-  type: 'primary' | 'ghost';
+  type?: 'primary' | 'ghost';
 
   /**
    * Size of the button, defined in the Sizes type.
    */
-  size: Sizes;
+  size?: Sizes;
 };
 
 
@@ -127,4 +127,15 @@ export type StatsProps={
   title:string
   amt:number|string,
   percent:number,
+}
+
+export type OptionType=
+  |string
+  |Record<'value'|'label'|string,any>
+export type InputProps={
+  options?:OptionType[],
+  type:HTMLInputTypeAttribute
+  name:string
+  placeholder?:any
+  label?:string;
 }

@@ -56,7 +56,7 @@ export const TableRow=({patientImg,patientName,EMRcode,department,bill,outstandi
     ]
   
     const TableHeading='Incoming Billing Patients'
-  
+    
     return(
       <div className="flex flex-col w-full">
         <div className="flex gap-3">

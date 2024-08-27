@@ -2,7 +2,7 @@ import { ButtonProps } from "@/types"
 import { ForwardedRef, forwardRef } from "react"
 
 
-const Button=forwardRef(({children,onClick,icons,leftIcon,rightIcon,noIcon=false, both,type,size}:ButtonProps,ref?:ForwardedRef<HTMLButtonElement>)=>{
+const Button=forwardRef(({children,onClick,icons='plus',leftIcon,rightIcon,noIcon=false, both,type='primary',size='md'}:ButtonProps,ref?:ForwardedRef<HTMLButtonElement>)=>{
     const icon=(
       icons==='plus'?
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
