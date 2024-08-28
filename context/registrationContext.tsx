@@ -1,6 +1,6 @@
 'use client'
 import { RegSectionLink } from "@/data/regdata";
-import { useObjectState } from "@/hooks";
+import { useObjectState, useRegSectionPage } from "@/hooks";
 import { ReactChildren } from "@/types";
 import { createContext, useContext } from "react";
 
@@ -25,6 +25,7 @@ export const useRegistrationSectionData=(section:RegSectionLink)=>{
     const regContext = useRegContext()
     const setSectionData=regContext?.setSectionData
     const sectionData = regContext?.data[section] 
+    
     return {
         setData:(value:any)=>setSectionData!(section,value),
         sectionData

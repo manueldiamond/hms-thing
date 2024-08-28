@@ -1,4 +1,7 @@
 import { RefObject, useEffect, useMemo, useRef, useState } from "react"
+import { baseRegURL, RegSection, RegSectionLink, regsections } from "./data/regdata"
+import { useRegistrationData, useRegistrationSectionData } from "./context/registrationContext"
+import { useRouter } from "next/navigation"
 
 export const useObjectState=<k extends string,v>(obj:Record<k,v>)=>{
     type T = Record<k,v>
@@ -37,4 +40,25 @@ export const useClickOut=(onOutClickFunction:Function,deps:any[]|boolean,ref?:Re
     }, typeof deps==='boolean'?[deps]:deps);
 
     return maindiv
+}
+
+export const useRegSectionPage=(section:RegSectionLink)=>{
+    const pageLinks=useMemo(
+        ()=>{
+            const currentPageID=regsections.findIndex(({link})=>link===section)
+            const prevPage=currentPageID>0&&baseRegURL+regsections[currentPageID-1].link
+            const nextPage=(currentPageID<(regsections.length-1))&&baseRegURL+regsections[currentPageID+1].link
+            return {prevPage,currentPageID,nextPage}
+    },[])
+    
+    const prevPageID=pageLinks.currentPageID>0?(pageLinks.currentPageID-1):(pageLinks.currentPageID)
+    const data=useRegistrationData()
+    const prevSectionData=prevPageID>=0&&data&&data[regsections[prevPageID].link]
+    const router = useRouter()
+    
+    if(data&&prevPageID!==pageLinks.currentPageID&&!prevSectionData)
+        router.replace(baseRegURL)
+
+
+    return pageLinks;
 }

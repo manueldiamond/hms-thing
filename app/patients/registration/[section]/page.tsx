@@ -1,5 +1,7 @@
 import RegForm from "@/components/reg-form";
-import { getHeading, RegInputs, RegSchemas, RegSection, RegSectionLink, regsections } from "../../../../data/regdata";
+import { getRegSectionHeading as getHeading, RegInputs, RegSchemas, RegSection, RegSectionLink, regsections } from "../../../../data/regdata";
+import RegistrationConfirmationSection from "@/components/reg-confirmation";
+import RegistrationCapturePhoto from "@/components/reg-capture-photo";
 
 
 
@@ -8,6 +10,7 @@ export default function RegistrationPage({params:{section}}:{params:{section:Reg
     return (
         <div className="flex flex-col gap-6 ">
             <h3 className="text-left text-head  p-2 bg-light w-full flex items-center gap-2 ">
+                
                 <svg
                   
                   viewBox="0 0 14 18"
@@ -25,10 +28,9 @@ export default function RegistrationPage({params:{section}}:{params:{section:Reg
                 {getHeading((section))}
               </h3>
               {section==='capture-photo'?
-                <>
-                </>
+                <RegistrationCapturePhoto/>
               : section==='confirmation'?
-                <RegConfirmation/>
+                <RegistrationConfirmationSection/>
               :
                 <RegForm section={section}/>
               }

@@ -102,6 +102,8 @@ export type ButtonProps = {
    * Size of the button, defined in the Sizes type.
    */
   size?: Sizes;
+  disabled?:boolean;
+  rounded?:boolean;
 };
 
 

@@ -13,7 +13,7 @@ export const regsections =  [
 
   export type RegSection=typeof regsections[number]['text']
   export type RegSectionLink=typeof regsections[number]['link']
-  export const getHeading=(searchlLink:RegSectionLink)=>{
+  export const getRegSectionHeading=(searchlLink:RegSectionLink)=>{
     const section = regsections.find(({link})=>link===searchlLink)
     return section?.displayHeading?section.displayHeading:section?.text
 }

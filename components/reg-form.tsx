@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { useClickOut } from "@/hooks"
+import { useClickOut, useRegSectionPage } from "@/hooks"
 import Button from "./button"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -17,14 +17,7 @@ const RegForm=({section}:{section:RegSectionLink})=>{
     const schema = RegSchemas[section]
     const inputs = RegInputs[section]
     const [loading,setLoading] = useState()
-    const {prevPage,nextPage}=useMemo(
-      ()=>{
-        const currentPageID=regsections.findIndex(({link})=>link===section)
-        const prevPage=currentPageID>0&&baseRegURL+regsections[currentPageID-1].link
-        const nextPage=(currentPageID<(regsections.length-1))&&baseRegURL+regsections[currentPageID+1].link
-
-        return {prevPage,nextPage}
-      },[])
+    const {prevPage,nextPage}=useRegSectionPage(section)
 
     if(!schema||!inputs) throw new Error()
 

@@ -42,6 +42,7 @@ const CurrentProfile=()=>{
 type optionsProps = {link:string,desc:string,title:string,icon:React.JSX.Element}
 
 const views=['new','manage'] as const
+
 const regOpts:optionsProps[]=[
   {
     link: '/patients/category',
@@ -96,7 +97,8 @@ const data:Record<
     heading:'What’s the patient category',
     subtext:'Tell us the category the patient falls into to continue registration',
     options:newOptions
-  }
+  },
+  
 }
 const Option=({link,desc,title,icon}:optionsProps)=>(
   <Link href={link} className='w-[340px] max-w-[340px] rounded-[12px] flex flex-col gap-2 pt-[120px] px-5 pb-[48px] group hover:text-white hover:bg-base bg-light items-center transition-colors text-head'>
@@ -105,6 +107,7 @@ const Option=({link,desc,title,icon}:optionsProps)=>(
       <p className="text-sm font-normal group-hover:text-white text-center transition-colors text-para">{desc}</p>
   </Link>
 )
+
 export default function LandingPage ({params:{view}}:{params:{view:typeof views[number]}}) {
   let {options,heading,subtext}=data[view]
   return (
