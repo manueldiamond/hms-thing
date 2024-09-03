@@ -114,7 +114,7 @@ export default function RegistrationCapturePhoto() {
         <BorderedContainer className="!p-0 !w-full">
           <div className=" flex gap-3 justify-between px-[10px] py-3 w-full overscroll-x-auto">
             {presetImages.map((src)=>
-              <button onClick={()=>setSelectedImage('/presetProfiles/'+src)} className="w-12 h-12 rounded-full aspect-square centered overflow-hidden">
+              <button key={src} onClick={()=>setSelectedImage('/presetProfiles/'+src)} className="w-12 h-12 rounded-full aspect-square centered overflow-hidden">
                 <Avatar img={'/presetProfiles/'+src} key={src} size='xl'/>
               </button>
             )} 

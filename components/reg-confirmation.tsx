@@ -26,7 +26,7 @@ const Section=({heading,link,data}:any)=>{
              </div>
              <BorderedContainer className="!p-0 !w-full !px-5 !py-4 flex-col flex gap-4">
                 {Object.keys(data).map(key=>(
-                    <div className=" centered !justify-between">
+                    <div key={key} className=" centered !justify-between">
                         <p className="text-para text-sm">{key}</p>
                         <p className="font-medium text-head">{
                             (key)==='image'?
@@ -47,7 +47,7 @@ export default function RegistrationConfirmationSection() {
     return(
         <div className="flex flex-col gap-8">
             {data&&Object.keys(data).map((key)=>
-                <Section 
+                <Section key={key}
                     heading={getRegSectionHeading(key as RegSectionLink)} 
                     data={data[key as RegSectionLink]} 
                     link={key} 
